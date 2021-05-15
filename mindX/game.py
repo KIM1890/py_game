@@ -1,5 +1,5 @@
 import pygame
-
+import os
 import time
 
 import random
@@ -30,7 +30,7 @@ yellow = (255, 255, 0)
 
 # music
 
-pygame.mixer.music.load('D:/to-do/py_game/mindX/data/570458__roses1401__its-a-new-day.mp3')
+pygame.mixer.music.load(os.path.join('data','570458__roses1401__its-a-new-day.mp3'))
 
 pygame.mixer.music.set_volume(0.1)
 
@@ -45,23 +45,25 @@ clock = pygame.time.Clock()
 
 # background pics
 
-background = pygame.image.load('D:/to-do/py_game/mindX/data/v462-n-130-textureidea_1.jpg')
+background = pygame.image.load(
+    os.path.join('data','v462-n-130-textureidea_1.jpg'))
 
-backgroundGameLoop = pygame.image.load('D:/to-do/py_game/mindX/data/light_green_2-wallpaper-1366x768.jpg')
+backgroundGameLoop = pygame.image.load(
+    os.path.join('data','light_green_2-wallpaper-1366x768.jpg'))
 
 # base pics
 
-spring = pygame.image.load('D:/to-do/py_game/mindX/data/Seasons-Spring.jpg')
+spring = pygame.image.load(os.path.join('data','Seasons-Spring.jpg'))
 
-winter = pygame.image.load('D:/to-do/py_game/mindX/data/Seasons-Winter.jpg')
+winter = pygame.image.load(os.path.join('data','Seasons-Winter.jpg'))
 
-fall = pygame.image.load('D:/to-do/py_game/mindX/data/Seasons-Fall.jpg')
+fall = pygame.image.load(os.path.join('data','Seasons-Fall.jpg'))
 
 # second level additonal pics
 
-summer = pygame.image.load('D:/to-do/py_game/mindX/data/Seasons-Summer.jpg')
+summer = pygame.image.load(os.path.join('data','Seasons-Summer.jpg'))
 
-pirates = pygame.image.load('D:/to-do/py_game/mindX/data/Pirates.jpg')
+pirates = pygame.image.load(os.path.join('data','Pirates.jpg'))
 
 ##ocean = pygame.image.load('Ocean.jpg')
 
@@ -74,7 +76,7 @@ pirates = pygame.image.load('D:/to-do/py_game/mindX/data/Pirates.jpg')
 ##bees = pygame.image.load('Bees.jpg')
 
 
-gameIcon = pygame.image.load('D:/to-do/py_game/mindX/data/teky.png')
+gameIcon = pygame.image.load(os.path.join('data','teky.png'))
 
 pygame.display.set_icon(gameIcon)
 
@@ -96,7 +98,8 @@ def button(msg, x, y, w, h, ib_c, ab_c, it_c, at_c, action=None):
 
         pygame.draw.rect(gameDisplay, ab_c, (x, y, w, h))
 
-        text(msg, x+(w/2), y+(h/2), 50, at_c, 'D:/to-do/py_game/mindX/font/LittleLordFontleroyNF.ttf')
+        text(msg, x+(w/2), y+(h/2), 50, at_c,
+             os.path.join('font','LittleLordFontleroyNF.ttf'))
 
         if click[0] == 1 and action != None:
 
@@ -106,7 +109,8 @@ def button(msg, x, y, w, h, ib_c, ab_c, it_c, at_c, action=None):
 
         pygame.draw.rect(gameDisplay, ib_c, (x, y, w, h))
 
-        text(msg, x+(w/2), y+(h/2), 50, it_c, 'D:/to-do/py_game/mindX/font/LittleLordFontleroyNF.ttf')
+        text(msg, x+(w/2), y+(h/2), 50, it_c,
+             os.path.join('font','LittleLordFontleroyNF.ttf'))
 
 
 def text(msg, x, y, size, color, font, sysfont=False):
@@ -146,10 +150,10 @@ def about():
 # References to images used
 
         text('References:', display_width/2, display_height /
-             1.25, 15, white, 'D:/to-do/py_game/mindX/font/coolvetica_rg.ttf')
+             1.25, 15, white, os.path.join('font','coolvetica_rg.ttf'))
 
         text(' - HỌC VIỆN SÁNG TẠO TRẺ TEKY, from http://www.teky.edu.vn/',
-             display_width/2, display_height/1.2, 15, white, 'D:/to-do/py_game/mindX/font/coolvetica_rg.ttf')
+             display_width/2, display_height/1.2, 15, white, os.path.join('font','coolvetica_rg.ttf'))
 
         button("Back", (display_width/2)-100, (display_height/2) -
                50, 200, 100, white, red, red, white, game_intro)
@@ -178,10 +182,10 @@ def game_intro():
         gameDisplay.blit(background, (00, 00))
 
         text('Picture Puzzle Game', display_width/2,
-             display_height/7, 50, red, 'D:/to-do/py_game/mindX/font/crackman.ttf')
+             display_height/7, 50, red, os.path.join('font','crackman.ttf'))
 
         text('HỌC VIỆN TEKY', display_width/2,
-             display_height/5, 25, white, 'D:/to-do/py_game/mindX/font/coolvetica_rg.ttf')
+             display_height/5, 25, white, os.path.join('font','coolvetica_rg.ttf'))
 
         button("Start Game", (display_width/2)-100, 200,
                200, 100, white, red, red, white, game_loop)
@@ -311,7 +315,7 @@ def game_loop(level=1, oldchoosen=None, oldtile=None, old_x=None):
             gameDisplay.blit(backgroundGameLoop, (0, 0))
 
             text('Level 1', display_width/2,
-                 display_height/8, 35, white, 'D:/to-do/py_game/mindX/font/zerovelo.ttf')
+                 display_height/8, 35, white, os.path.join('font','zerovelo.ttf'))
 
             gameDisplay.blit(choosen[0], (100, 100))
 
@@ -330,7 +334,7 @@ def game_loop(level=1, oldchoosen=None, oldtile=None, old_x=None):
             gameDisplay.blit(backgroundGameLoop, (0, 0))
 
             text('Level 2', display_width/2,
-                 display_height/8, 35, white, 'D:/to-do/py_game/mindX/font/zerovelo.ttf')
+                 display_height/8, 35, white, os.path.join('font','zerovelo.ttf'))
 
             gameDisplay.blit(pygame.transform.scale(
                 choosen[0], (150, 150)), (175, 100))
@@ -469,12 +473,12 @@ def game_loop(level=1, oldchoosen=None, oldtile=None, old_x=None):
                 if level == 1:
 
                     text('Nice !!!', display_width/2, display_height /
-                         1.15, 30, blue, 'D:/to-do/py_game/mindX/font/coolvetica_rg.ttf')
+                         1.15, 30, blue, os.path.join('font','coolvetica_rg.ttf'))
 
                 else:
 
                     text('Nice !!!', display_width/2, display_height /
-                         1.05, 30, blue, 'D:/to-do/py_game/mindX/font/coolvetica_rg.ttf')
+                         1.05, 30, blue, os.path.join('font','coolvetica_rg.ttf'))
 
                 Won = True
 
@@ -485,12 +489,12 @@ def game_loop(level=1, oldchoosen=None, oldtile=None, old_x=None):
                 if level == 1:
 
                     text('Nope !!!', display_width/2, display_height /
-                         1.15, 30, red, 'D:/to-do/py_game/mindX/font/coolvetica_rg.ttf')
+                         1.15, 30, red, os.path.join('font','coolvetica_rg.ttf'))
 
                 else:
 
                     text('Nope !!!', display_width/2, display_height /
-                         1.05, 30, red, 'D:/to-do/py_game/mindX/font/coolvetica_rg.ttf')
+                         1.05, 30, red, os.path.join('font','coolvetica_rg.ttf'))
 
                 Won = False
 
