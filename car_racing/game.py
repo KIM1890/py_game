@@ -32,14 +32,14 @@ all_sprites_list.add(playerCar)
 
 clock = pygame.time.Clock()
 
-carryOn = False
-while not carryOn:
+running = True
+while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            carryOn = True
+            running = False
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_x:
-                carryOn = True
+                running = True
     # khi cac phim mui ten left, right duoc nhan
     keys = pygame.key.get_pressed()
     if keys[pygame.K_LEFT]:
@@ -63,6 +63,5 @@ while not carryOn:
     pygame.display.flip()
 
     clock.tick(60)
-
 
 pygame.quit()
