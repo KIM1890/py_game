@@ -4,5 +4,7 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/FlappyBird" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Side-Scroller-Game" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/mario_game" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pacman-with-python" vcs="Git" />
   </component>
 </project>
